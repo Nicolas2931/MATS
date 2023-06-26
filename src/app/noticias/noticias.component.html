@@ -1,0 +1,48 @@
+
+<div class="container mb-4">
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+      <div class="card border-0">
+        <div class="card-body">
+          <div class="input-group">
+              <input type="text" class="form-control custom-search-input" placeholder="Cantidad de noticias..." style="margin-right:3px;">
+              <input type="text" class="form-control custom-search-input" placeholder="Buscar..." style="margin-right:3px;">
+              <div class="input-group-append">
+                <button class="btn custom-bg-purple text-white custom-search-button" type="button">Buscar</button>
+              </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col">
+        <div class="card mb-3" *ngFor="let noticia of noticias; let i=index">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-9 mb-3">
+                <h5 class="card-title">{{i+1}}).Título:{{noticia.titulo}}</h5>
+                <p class="card-text">Fecha:{{noticia.fecha}}</p>
+                <hr/>
+                <p class="card-text">Descripción:{{noticia.descripcion}}</p>
+              </div>
+              <div class="col-md-3">
+                <a href="#" class="btn custom-bg-purple mr-2">
+                  <span>Ver</span>
+                  <img src="../../assets/images/ver-lista.png" class="img-fluid" style="max-width: 40px; height:auto; margin-left:5px"/>
+                </a>
+                <button class="btn custom-bg-purple" style="margin-left: 5px;" (click)="apoyar(i)">
+                  <span>Apoyar</span>
+                  <img [src]="getImagenActual(i)" class="img-fluid" style="max-width: 40px; height:auto; margin-left:5px"/> 
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+    </div>
+</div>
