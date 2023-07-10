@@ -1,7 +1,7 @@
 
 <app-filtro-noticias (tam)="cargar_notc($event)" (enviarTexto)="recibirBusqueda($event)"></app-filtro-noticias>
 <p>Valor seleccionado: {{ cantidad_notc }}</p>
-<p>Busqueda: {{ejemplo}}</p>
+<p>Busqueda: {{ejemplo}} {{texto}} y su tamaño es:{{tam}}</p>
 <div class="container">
     <div class="row justify-content-center">
       <div class="col">
@@ -16,14 +16,36 @@
                 <p class="card-text">Descripción:{{noticia.descripcion}}</p>
               </div>
               <div class="col-md-3">
-                <a [routerLink]="['/ver',noticia.id]" class="btn custom-bg-purple mr-2 sombreado">
-                  <span>Ver</span>
-                  <img src="../../assets/images/ver-lista.png" class="img-fluid" style="max-width: 40px; height:auto; margin-left:5px"/>
-                </a>
-                <button class="btn custom-bg-purple sombreado" style="margin-left: 5px;" (click)="apoyar(i)">
-                  <span>Apoyar</span>
-                  <img [src]="getImagenActual(i)" class="img-fluid" style="max-width: 40px; height:auto; margin-left:5px"/> 
-                </button>
+                <table style="border:0;">
+                  <tr>
+                    <td>
+                      <button (click)="verNoticia(noticia.id)" class="btn custom-bg-purple sombreado" style="margin-left: 5px; display: flex; align-items: center;">
+                        <span style="flex: 1;" class="opciones">Ver</span>
+                        <img src="../../assets/images/ver-lista.png" class="img-fluid" style="max-width: 40px; height:auto; margin-left:5px"/>
+                      </button>
+                    </td>
+                    <td>
+                      <button class="btn custom-bg-purple sombreado" style="margin-left: 5px; display: flex; align-items: center;">
+                        <span style="flex: 1;" class="opciones">Apoyar</span>
+                        <img [src]="getImagenActual(i)" class="img-fluid" style="max-width: 40px; height:auto; margin-left:5px"/> 
+                      </button>
+                    </td> 
+                  </tr>
+                  <tr *ngIf="usuario=='Administrador'">
+                    <td>
+                      <button class="btn opciones_administrador" style="margin-left: 5px; display: flex; align-items: center;">
+                        <span style="flex: 1;" class="opciones_admin" >Editar</span>
+                        <img src="../../assets/images/editar.png" class="img-fluid" style="max-width: 40px; height:auto; margin-left:5px"/> 
+                      </button>
+                    </td>
+                    <td>
+                      <button class="btn opciones_administrador" style="margin-left: 5px; display: flex; align-items: center;">
+                        <span style="flex: 1;" class="opciones_admin">Eliminar</span>
+                        <img src="../../assets/images/eliminar.png" class="img-fluid" style="max-width: 40px; height:auto; margin-left:5px"/> 
+                      </button>
+                    </td>
+                  </tr>
+                </table>                
               </div>
             </div>
           </div>

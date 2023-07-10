@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { LoginService } from '../login.service';
 import { Noticia } from '../noticia.model';
 import { NoticiasService } from '../noticias.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-noticias',
   templateUrl: './noticias.component.html',
@@ -13,7 +13,7 @@ export class NoticiasComponent implements OnInit{
   imagenNueva = '../../assets/images/estrella_activa.png';
   imagenOriginal = '../../assets/images/estrella.png';
   imagenes: string[] = [];
-  noticias:Noticia[];
+  noticias:Noticia[]=[];
   ejemplo:string;
   cantidad_notc:number;
   inicio:number;
@@ -25,18 +25,33 @@ export class NoticiasComponent implements OnInit{
   desactivar3: boolean = true;
   desactivar4: boolean = true;
   desactivar5: boolean = true;
+
+  usuario:string;
+  tam:number;
   recibirBusqueda(texto: string) {
     // Hacer algo con el texto recibido
     this.ejemplo=texto;
   }
+  texto:string;
   cargar_notc(tam:string){
     if(tam!="null"){
       this.cantidad_notc =parseInt(tam);
     }
   }
-  constructor(private loginService:LoginService, private servicioNoticias:NoticiasService){}
+  constructor(private loginService:LoginService, private servicioNoticias:NoticiasService, private router:Router){
+    this.tam=this.noticias.length;
+  }
   ngOnInit(): void {
-    this.noticias=this.servicioNoticias.getNoticias();
+    this.tam=this.noticias.length;
+    if(this.tam==0){
+      this.texto='Entro 1 vez';
+      this.tam=this.noticias.length;
+      this.noticias = this.servicioNoticias.getNoticias();
+    }
+    else{
+      this.texto='no entro';
+    }
+    this.usuario=this.loginService.getTipoUsuario();
     //Se inicia el array con la cantidad de elementos de la matriz de noticias
     //Se llena cada elemento del arreglo con la imagen base
     this.imagenes = Array(this.noticias.length).fill(this.imagenActual);
@@ -119,6 +134,10 @@ export class NoticiasComponent implements OnInit{
         this.num_pag='1';
         break;
     }
+  }
+  //Método que redirecciona para ver la noticia, enviando el ID por la URL
+  verNoticia(id: string) {
+    this.router.navigate(['/ver', id]);
   }
 
 }
