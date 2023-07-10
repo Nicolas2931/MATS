@@ -1,0 +1,12 @@
+.custom-bg-purple {
+    background-color:rgb(76, 6, 122); 
+}
+span{
+    text-align:center; 
+    text-decoration:none; 
+    color:white;
+}
+.sombreado:hover{
+    background-color:rgb(121, 30, 182);
+    box-shadow: 0 0 0 0.2rem rgba(198, 75, 255, 0.25);
+}

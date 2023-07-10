@@ -16,13 +16,13 @@
         <div class="input-group-text custom-bg-purple">
             <img src="../../assets/images/nombre.png" alt="Usuario"  style ="height:2rem;"/>
         </div>
-        <input [ngClass]="{casoError:error==true}" class="form-control" type="text" name="usuario" placeholder="Usuario" ngModel/>
+        <input [ngClass]="{casoError:error==true}" class="form-control" type="text" name="usuario" placeholder="Usuario" style="margin-left:5px" ngModel/>
     </div>
     <div class="input-group mt-1">
         <div class="input-group-text custom-bg-purple">
             <img src="../../assets/images/id.png" alt="Password" style ="height:2rem;"/>
         </div>
-        <input [ngClass]="{casoError:error==true}" class="form-control" type="password" placeholder="Contraseña" name="password" ngModel/>
+        <input [ngClass]="{casoError:error==true}" class="form-control" type="password" placeholder="Contraseña" name="password" style="margin-left:5px" ngModel/>
     </div>
    <button type="submit" class="btn custom-bg-purple text-white w-100 mt-4" id="Acceder">Acceder</button>
    <button class="btn btn-danger text-white w-100 mt-4" (click)="volverGeneral()">Volver</button>

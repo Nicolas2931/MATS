@@ -1,27 +1,12 @@
 
-<div class="container mb-4">
-  <div class="row justify-content-center mt-4">
-    <div class="col-md-6">
-      <div class="card border-0">
-        <div class="card-body">
-          <div class="input-group">
-              <input type="text" class="form-control custom-search-input" placeholder="Cantidad de noticias..." style="margin-right:3px;">
-              <input type="text" class="form-control custom-search-input" placeholder="Buscar..." style="margin-right:3px;">
-              <div class="input-group-append">
-                <button class="btn custom-bg-purple text-white custom-search-button" type="button">Buscar</button>
-              </div>  
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
+<app-filtro-noticias (tam)="cargar_notc($event)" (enviarTexto)="recibirBusqueda($event)"></app-filtro-noticias>
+<p>Valor seleccionado: {{ cantidad_notc }}</p>
+<p>Busqueda: {{ejemplo}}</p>
 <div class="container">
     <div class="row justify-content-center">
       <div class="col">
-        <div class="card mb-3" *ngFor="let noticia of noticias; let i=index">
+        <ng-container *ngFor="let noticia of noticias; let i=index; let last=last">
+        <div class="card mb-3" *ngIf="i<cantidad_notc && i>=inicio && i<=fin">
           <div class="card-body">
             <div class="row">
               <div class="col-md-9 mb-3">
@@ -31,18 +16,36 @@
                 <p class="card-text">Descripción:{{noticia.descripcion}}</p>
               </div>
               <div class="col-md-3">
-                <a href="#" class="btn custom-bg-purple mr-2">
+                <a [routerLink]="['/ver',noticia.id]" class="btn custom-bg-purple mr-2 sombreado">
                   <span>Ver</span>
                   <img src="../../assets/images/ver-lista.png" class="img-fluid" style="max-width: 40px; height:auto; margin-left:5px"/>
                 </a>
-                <button class="btn custom-bg-purple" style="margin-left: 5px;" (click)="apoyar(i)">
+                <button class="btn custom-bg-purple sombreado" style="margin-left: 5px;" (click)="apoyar(i)">
                   <span>Apoyar</span>
                   <img [src]="getImagenActual(i)" class="img-fluid" style="max-width: 40px; height:auto; margin-left:5px"/> 
                 </button>
               </div>
             </div>
           </div>
-        </div>        
+        
+        </div>   
+      </ng-container>     
       </div>
+      <section class="paginacion">
+        <p id="numero_pagina">Página {{num_pag}} de 5</p>
+      <div class="col-md-12">
+        <ul>
+          <li class="page-item" *ngIf="!desactivar1" (click)="paginacion(1)">1</li>
+          <li class="page-item" *ngIf="!desactivar2" (click)="paginacion(2)">2</li>
+          <li class="page-item" *ngIf="!desactivar3" (click)="paginacion(3)">3</li>
+          <li class="page-item" *ngIf="!desactivar4" (click)="paginacion(4)">4</li>
+          <li class="page-item" *ngIf="!desactivar5" (click)="paginacion(5)">5</li>
+        </ul>
+      </div>
+    </section>
+  
     </div>
+      
+
 </div>
+
