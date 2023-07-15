@@ -6,9 +6,9 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class LoginService {
-  //En token debo generar el token que genere la base de datos
-  token:string;
-  tipo_usuario:string;
+  
+  private token:string;
+  private tipo_usuario:string;
   constructor(private route:Router, private cookies:CookieService, private cookie_usuario:CookieService) {
     this.token="";
     this.tipo_usuario="";

@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NoticiasService } from '../noticias.service';
 
 @Component({
   selector: 'app-noticias-interes',
   templateUrl: './noticias-interes.component.html',
   styleUrls: ['./noticias-interes.component.css']
 })
-export class NoticiasInteresComponent {
-
+export class NoticiasInteresComponent implements OnInit {
+    constructor(private noticia_servicio:NoticiasService){}
+    ngOnInit(): void {
+      this.noticia_servicio.setIdentificador('Interes');
+    }
 }

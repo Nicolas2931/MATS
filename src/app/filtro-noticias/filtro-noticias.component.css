@@ -6,12 +6,14 @@
 .custom-bg-purple {
     background-color:rgb(76, 6, 122); 
 }
-select{
+.borde-morado{
   color: rgb(76, 6, 122);
   border-color: rgb(76, 6, 122);
   text-align: center;
   height:100%;
 }
-select:hover{
+#agregar:hover{
+  background-color: rgb(76, 6, 122);
+  color:white;
   box-shadow: 0 0 0 0.2rem rgba(198, 75, 255, 0.25);
 }

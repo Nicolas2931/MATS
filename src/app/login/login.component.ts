@@ -9,15 +9,13 @@ import { LoginService } from '../login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  error:boolean;
-  usuario:string;
+  private error:boolean;
   constructor(private router: Router, private loginService:LoginService){
     this.error=false;
   }
   volverGeneral(){
     this.router.navigate(['']);
   }
-
   login(form:NgForm){
     const usuario=form.value.usuario;
     const password=form.value.password;
@@ -25,7 +23,13 @@ export class LoginComponent {
       this.router.navigate(['/Noticias_UD']);
     }
     else{
-      this.error=true;
+      this.setError(true);
     }
+  }
+  getError(){
+    return this.error;
+  }
+  setError(error:boolean){
+    this.error=error;
   }
 }

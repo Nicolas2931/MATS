@@ -6,8 +6,15 @@ import { LoginService } from './login.service';
   providedIn: 'root'
 })
 export class NoticiasService {
-  noticias:Noticia[] = [];
-  constructor(private loginService:LoginService) { }
+  private noticias:Noticia[] = [];
+  //Variable que guarda si las noticias ya fueron cargadas en la pestaña o no.
+  private noticiasCargadas:boolean;
+  //Variable que guarda la pestaña actual del usuario
+  private identificador:string;
+  constructor(private loginService:LoginService) {
+    this.noticiasCargadas=false;
+    this.identificador='';
+  }
   noticia1:Noticia =
   new Noticia("A1","Investigadores de la Universidad XYZ descubren posible cura para el cáncer"
   ,"15 de abril de 2023",
@@ -42,9 +49,39 @@ export class NoticiasService {
   noticia11:Noticia=new Noticia("A11","Estudiantes de la Universidad Santo Tomas obtienen becas para estudiar en el extranjero",
   "2 de febrero de 2024",
   "Varios estudiantes destacados de la Universidad ABC han sido seleccionados para recibir becas que les permitirán realizar estudios en el extranjero durante el próximo año académico. Esta oportunidad les brindará una experiencia educativa internacional y les abrirá nuevas puertas en sus carreras.");
-  getNoticias(){
-    let usuario:string;
-    usuario=this.loginService.getTipoUsuario();
+  /*
+    getNoticiasGenerales(){
+
+    }
+    getNoticiasUD(usuario:string){
+
+    }
+    getNoticiasInteres(usuario:string){
+
+    }
+
+  */
+ getIdentificador(){
+  return this.identificador;
+ }
+ setIdentificador(identificador:string){
+  this.identificador = identificador;
+ }
+  
+  getNoticias(usuario:string, identificador:string){
+    /*
+      if(identificador=="generales"){
+        this.noticias=this.getNoticiasGenerales();
+      }
+      else if(identificador=="ud"){
+        this.noticias=this.getNoticiasUD(usuario);
+      }
+      else if(identificador=="interes"{
+        this.noticias=this.getNoticiasInteres(usuario);
+      }
+    */
+    if(!this.noticiasCargadas){
+      this.noticiasCargadas=true;
     if(usuario =="Estudiante"){
       this.noticias.push(this.noticia1);
       this.noticias.push(this.noticia2);
@@ -72,6 +109,7 @@ export class NoticiasService {
       this.noticias.push(this.noticia10);
       this.noticias.push(this.noticia11);
     }
+  }
     return this.noticias;
   }
 
