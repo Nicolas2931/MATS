@@ -14,3 +14,10 @@
 #Acceder:hover {
     background-color:rgb(108, 22, 165);
 }
+.borde-morado:focus{
+    outline-color:rgb(121, 30, 182);
+    border-color:rgb(121, 30, 182);
+    box-shadow: 0 0 0 0.2rem rgba(198, 75, 255, 0.25);
+}
+
+

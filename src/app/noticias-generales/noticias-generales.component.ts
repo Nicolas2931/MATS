@@ -11,5 +11,4 @@ export class NoticiasGeneralesComponent implements OnInit {
   ngOnInit(): void {
     this.noticia_servicio.setIdentificador('Publico');
   }
-
 }

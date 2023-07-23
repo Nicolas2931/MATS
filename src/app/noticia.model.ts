@@ -1,14 +1,16 @@
 export class Noticia{
-    id:string;
+    id:number;
     titulo:string;
     fecha:string;
     descripcion:string;
-
-    constructor(id:string, titulo:string, fecha:string, descripcion:string){
+    likes:number;
+    apoyado:string;
+    constructor(id:number, titulo:string, fecha:string, descripcion:string,likes:number, apoyado:string){
         this.id=id;
         this.titulo = titulo;
         this.fecha=fecha;
         this.descripcion= descripcion;  
+        this.likes= likes;
+        this.apoyado= apoyado;
     }
-
 }

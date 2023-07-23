@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark fondo-morado">
-  <img src="../assets/images/Logo.png" alt="Logo de MATS" class="img-fluid navbar-brand" style="max-width: 150px; height: auto; margin-left: 10px;">
+  <img src="../assets/images/logo.png" alt="Logo de MATS" class="img-fluid navbar-brand" style="max-width: 150px; height: auto; margin-left: 10px;">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenu()">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse" [ngClass]="{'show': showMenu}">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto text-right">
       <li class="nav-item">
         <a class="nav-link" href="">Noticias Generales</a>
       </li>
@@ -21,7 +21,7 @@
       <li class="nav-item">
         <a class="nav-link" href="/Mesa_Ayuda">Mesa de Ayuda</a>
       </li>
-      <div style="text-align:right;">
+      <div class="ml-auto">
         <li class="nav-item" *ngIf="estalogueado()==''">
           <a class="nav-link" href="/login">Login</a>
         </li>

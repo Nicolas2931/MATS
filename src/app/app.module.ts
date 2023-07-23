@@ -19,6 +19,8 @@ import { PreguntasFrecuentesComponent } from './preguntas-frecuentes/preguntas-f
 import { NoticiasService } from './noticias.service';
 import { FiltroNoticiasComponent } from './filtro-noticias/filtro-noticias.component';
 import { OpcionesNoticiaComponent } from './opciones-noticia/opciones-noticia.component';
+import { SubirNoticiaComponent } from './subir-noticia/subir-noticia.component';
+import { PDFNoticiaComponent } from './pdf-noticia/pdf-noticia.component';
 
 
 const appRoutes:Routes=[
@@ -29,6 +31,7 @@ const appRoutes:Routes=[
   {path:'Mesa_Ayuda',component: MesaAyudaComponent, canActivate: [LoginGuardian]},
   {path:'login',component: LoginComponent},
   {path:'noticia/:id',component: OpcionesNoticiaComponent,canActivate: [LoginGuardian]},
+  {path:'subir_noticia',component: SubirNoticiaComponent,canActivate: [LoginGuardian]},
   {path:'**',component: PaginaErrorComponent}
 ];
 
@@ -43,7 +46,9 @@ const appRoutes:Routes=[
     NoticiasComponent,
     PreguntasFrecuentesComponent,
     FiltroNoticiasComponent,
-    OpcionesNoticiaComponent
+    OpcionesNoticiaComponent,
+    SubirNoticiaComponent,
+    PDFNoticiaComponent
   ],
   imports: [
     BrowserModule,

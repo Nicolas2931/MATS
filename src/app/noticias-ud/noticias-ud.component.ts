@@ -9,6 +9,6 @@ import { NoticiasService } from '../noticias.service';
 export class NoticiasUDComponent implements OnInit {
   constructor(private noticia_servicio:NoticiasService){}
   ngOnInit(): void {
-    this.noticia_servicio.setIdentificador('UD');
+    this.noticia_servicio.setIdentificador('UD');  
   }
 }

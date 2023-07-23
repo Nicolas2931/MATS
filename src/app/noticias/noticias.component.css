@@ -51,6 +51,7 @@ button{
 
 .opciones_administrador:hover{
     box-shadow: 0 0 0 0.2rem rgba(198, 75, 255, 0.25);
+    background-color:rgb(238, 238, 238);
 }
 
 #numero_pagina{

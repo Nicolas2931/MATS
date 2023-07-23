@@ -10,5 +10,6 @@ export class NoticiasInteresComponent implements OnInit {
     constructor(private noticia_servicio:NoticiasService){}
     ngOnInit(): void {
       this.noticia_servicio.setIdentificador('Interes');
+      
     }
 }

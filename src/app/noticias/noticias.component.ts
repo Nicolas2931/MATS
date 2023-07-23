@@ -78,12 +78,12 @@ export class NoticiasComponent implements OnInit{
   ngOnInit(): void {
     
     this.setTipoUsuario(this.loginService.getTipoUsuario());
-
     //Se inicializa las URL de las imagenes.
     this.imagenActual = '../../assets/images/estrella.png';
     this.imagenNueva = '../../assets/images/estrella_activa.png';
     this.imagenOriginal = '../../assets/images/estrella.png';
-    
+
+    this.identificador=this.servicioNoticias.getIdentificador();
     this.noticias = this.servicioNoticias.getNoticias(this.getTipoUsuario(),this.identificador);
     //Carga inicial de la cantidad de noticias, si es menor a 50 ese será el tamaño, sino el tamaño será 50
     if(this.noticias.length<=50){
@@ -150,11 +150,17 @@ export class NoticiasComponent implements OnInit{
   }
 
   /*
-    Método que carga el vector de imágenes según el apoyo a las noticias
+    Método que carga el vector de imágenes según el apoyo a las noticias del usuario
   */
-  cargarImagenes(/*noticias:Noticia[]*/){
-    //La línea de abajo luego se cambia (borra)
-    this.imagenes = Array(this.noticias.length).fill(this.imagenActual);
+  cargarImagenes(){
+    for (let i = 0; i < this.noticias.length; i++) {
+      if(this.noticias[i].apoyado=='Apoyado'){
+        this.imagenes[i]=this.imagenNueva;
+      }
+      else{
+        this.imagenes[i]=this.imagenOriginal;
+      }
+    }
   }
 
   /*
@@ -312,11 +318,27 @@ export class NoticiasComponent implements OnInit{
     this.usuario = usuario;
   }
   //Método que redirecciona para ver la noticia, enviando el ID por la URL
-  opcionNoticia(id: string, opcion: string) {
+  opcionNoticia(id:number, opcion: string) {
     const queryParams: NavigationExtras = {
       queryParams: { opcion: opcion }
     };
     this.router.navigate(['/noticia', id], queryParams);
+  }
+  //Método que recorta la descripción para que solo aparezcan las primeras 100 palabras 
+  Descripcion(des:string){
+    let maxPalabras=100;
+    let descripcionCompleta=des;
+    const palabras = descripcionCompleta.split(' ');
+    if (palabras.length > maxPalabras) {
+      return palabras.slice(0,maxPalabras).join(' ') + '...';
+    }
+    return descripcionCompleta;
+  }
+  eliminar(id_noticia:number){
+    this.servicioNoticias.eliminarNoticia(id_noticia);
+    this.cargarImagenes(/*this.noticias*/);
+    this.cargarPaginacion();
+    this.cantidad_noticias=this.noticias.length;
   }
 
 }
