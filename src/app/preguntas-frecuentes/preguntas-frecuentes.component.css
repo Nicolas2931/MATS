@@ -1,0 +1,189 @@
+.card{
+    border-radius: 0;
+}
+#contenedor_encabezado{
+    background-image: url('../../assets/images/encabezado.png');
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+    background-position: center center; /* Centra la imagen horizontal y verticalmente */
+}
+#titulo{
+    text-align: center;
+    color:white;
+    font-weight: bold;
+}
+.buscar:focus, .boton_buscar:focus {
+    outline-color: rgb(76, 6, 122);
+    border-color: rgb(76, 6, 122);
+    box-shadow: 0 0 0 0.2rem rgba(198, 75, 255, 0.25);
+}
+.fondo_morado{
+    background-color:rgb(76, 6, 122);
+}
+.borde-morado{
+    color: rgb(76, 6, 122);
+    border-color: rgb(76, 6, 122);
+}
+.boton_buscar{
+    background-color: rgb(78, 5, 121);
+    border-color:rgb(62, 10, 75);
+}
+.boton_buscar:hover{
+    background-color: rgb(135, 38, 190);
+}
+/*Estilo CSS*/
+
+
+.multiselect {
+    width: 100%;
+    position:relative;
+}
+
+.selectBox {
+    position: relative;
+}
+
+.selectBox select {
+    width: 100%;
+}
+
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#checkboxes {
+    display: block;
+    border: 1px #dadada solid;
+    position:absolute;
+    width:95%;
+    background-color:white;
+    box-sizing: border-box;
+    overflow-y:auto;
+    max-height:110px;
+}
+#checkboxes.hide {display:none;}
+
+#checkboxes label {
+    display: block;
+}
+
+#checkboxes label:hover {
+    background-color:rgb(169, 164, 175);
+}
+.flex-container {
+    display: flex;
+}
+#categorias{
+    color:rgb(78, 5, 121);
+    
+}
+
+.form-check-input{
+    outline-color:rgb(121, 30, 182);
+    border-color:rgb(121, 30, 182);
+}
+.form-check-input:focus{
+    box-shadow: 0 0 0 0.2rem rgba(198, 75, 255, 0.25);
+}
+.form-check-input:checked {
+    background-color: rgb(121, 30, 182);
+    border-color:rgb(121, 30, 182);
+}
+  
+.form-check-input:checked + .form-check-label {
+    color:rgb(121, 30, 182);
+    font-weight: bold;
+}
+
+
+
+
+/*  --------------------------*/
+.contenedor_lista{
+    border-radius: 10px;
+    width:100%;
+    background-color: white;
+}
+.select-btn{
+    display:flex;
+    height:40px;
+    align-items:center;
+    justify-content: space-between;
+    border-radius: 8px;
+    cursor:pointer;
+    box-shadow:0 5px 10px rgba(198, 75, 255, 0.25)
+}
+.select-btn .btn-text{
+    font-weight: 400;
+    color:rgb(121, 30, 182);
+}
+.select-btn .arrow-dwn{
+    height: 21px;
+    width: 21px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 14px;
+    color: rgb(121, 30, 182);
+    transition: 0.3s;
+}
+.list-items{
+    position:relative;
+    background-color: #fff;
+    border-radius:8px;
+    box-shadow: 0 5px 10px rgba(0, 0,0,0.1);
+    display: none;
+    max-height: 100px;
+    overflow-y: auto;
+}
+.list-items .item{
+    display: flex;
+    align-items: center;
+    list-style:none;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    padding:0 15px;
+    border-radius: 8px;
+}
+.list-items .item:hover{
+    background-color:#e7edfe;
+}
+.item .checkbox{
+    display: flex;
+    height: 16px;
+    width:16px;
+    align-items:center;
+    justify-content: center;
+    border-radius:4px;
+    margin-right: 12px;
+    border:1.5px solid #c0c0c0;
+    transition: all 0.3s ease-in-out;
+}
+.item .item-text{
+    font-size:16px;
+    font-weight: 400;
+    color:#333;
+}
+.checkbox .check-icon{
+    font-size: 11px;
+    transform:scale(0);
+    transition: all 0.3ms ease-in-out;
+}
+.select-btn.open ~ .list-items{
+    display:block;
+}
+.select-btn.open .arrow-dwn{
+    transform:rotate(-180deg) ;
+}
+.item.checked .check-icon{
+    transform:scale(1);
+}
+.item.checked .checkbox{
+    background-color:rgb(121, 30, 182);
+    color:white;
+}

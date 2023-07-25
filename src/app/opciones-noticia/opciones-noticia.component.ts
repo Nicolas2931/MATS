@@ -35,7 +35,7 @@ export class OpcionesNoticiaComponent implements OnInit,AfterViewInit{
   //Variable que guarda el titulo y descripción de la noticia
   titulo:string;
   descripcion:string;
-  fecha:string;
+  fecha:Date;
   
   ngOnInit(){
     this.routerURL.queryParams.subscribe(params => {

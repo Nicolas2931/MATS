@@ -1,1 +1,44 @@
-<p>preguntas-frecuentes works!</p>
+<div class="container w-100 d-flex justify-content-center align-items-center">
+  <div class="card w-100" id="contenedor_encabezado">
+    <!-- Contenido de la carta -->
+    <div class="card-body">
+      <h5 class="card-title display-3 mt-5" id="titulo">¿En qué podemos ayudarte?</h5>
+      <div class="row align-items-center mt-5">
+        <div class="col">
+            <input type="text" class="form-control buscar" placeholder="Buscar..." [(ngModel)]="txt_buscar">
+        </div>   
+        <div class="col-auto">
+            <button id="boton_buscar" class="btn text-white boton_buscar" type="button"><img src="../../assets/images/lupa.png" style ="height:2rem;" (click)="buscar()"></button>
+        </div> 
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+        <!--Lista desplegable-->
+        <div class="container contenedor_lista">
+          <div class="row">
+            <div class="select-btn" (click)="mostrar_lista()">
+              <span class="btn-text">{{txt_lista}}</span>
+              <span class="arrow-dwn">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </div>
+            <ul class="list-items">
+              <ng-container *ngFor="let cat of categorias">
+                <li class="item" (click)="chulo(cat.id,cat.nombre)" [id]="cat.id">
+                  <span class="checkbox">
+                    <i class="fa fa-solid fa-check check-icon"></i>
+                  </span>
+                  <span class="item-text">{{cat.nombre}}</span>
+                </li>
+              </ng-container>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

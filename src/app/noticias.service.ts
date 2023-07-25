@@ -18,40 +18,40 @@ export class NoticiasService {
   }
   noticia1:Noticia =
   new Noticia(1,"Investigadores de la Universidad XYZ descubren posible cura para el cáncer"
-  ,"2023-02-01",
+  ,new Date('2023-02-01'),
   "Un equipo de científicos de la Universidad XYZ ha realizado un avance significativo en la búsqueda de una cura para el cáncer. Sus estudios preliminares han revelado una terapia innovadora que muestra resultados prometedores en pruebas de laboratorio.",
   300,'');
   noticia2:Noticia=new Noticia(2,"Estudiante de la Universidad ABC gana prestigioso premio de matemáticas",
-  "2023-07-02",
+  new Date('2023-02-02'),
   "Juan Pérez, estudiante de último año de la Universidad ABC, ha sido galardonado con el Premio Nacional de Matemáticas por su destacado trabajo en el campo de la teoría de números. Este premio reconoce su talento y dedicación a la excelencia académica.",250,'Apoyado');
   noticia3:Noticia=new Noticia(3,"Nueva conferencia sobre inteligencia artificial en la Universidad XYZ",
-  "2023-02-03",
+  new Date('2023-02-03'),
   "La Universidad XYZ organizará una conferencia de dos días sobre los avances más recientes en inteligencia artificial. El evento contará con destacados expertos en el campo y brindará una plataforma para el intercambio de conocimientos y la discusión de ideas innovadoras.",250,'Apoyado');
   noticia4:Noticia=new Noticia(4,"Investigadores de la Universidad ABC descubren nueva especie de mariposa",
-  "2023-02-04",
+  new Date('2023-02-04'),
   "Un equipo de biólogos de la Universidad ABC ha identificado una nueva especie de mariposa en una remota región de la selva amazónica. Este descubrimiento destaca la importancia de la conservación de los ecosistemas y la biodiversidad."
   ,250,'Apoyado');
   noticia5:Noticia=new Noticia(5,"Concurso de diseño sostenible en la Facultad de Arquitectura",
-  "2023-02-05",
+  new Date('2023-02-05'),
   "La Facultad de Arquitectura de la Universidad XYZ organizará un concurso para fomentar la innovación en el diseño sostenible. Los estudiantes tendrán la oportunidad de presentar sus propuestas y contribuir a la creación de entornos más ecológicos y respetuosos con el medio ambiente."
   ,250,'Apoyado');
   noticia6:Noticia=new Noticia(6,"Investigadores de la Universidad ABC publican estudio sobre cambio climático",
-  "2023-02-06",
+  new Date('2023-02-06'),
   "Un equipo de científicos de la Universidad ABC ha publicado un estudio integral sobre los efectos del cambio climático en los ecosistemas costeros. Sus hallazgos destacan la urgencia de abordar este problema global y proponen posibles soluciones basadas en la conservación y la mitigación.",250,'');
   noticia7:Noticia=new Noticia(7,"Jornada de voluntariado en la Universidad XYZ",
-  "2023-02-07",
+  new Date('2023-02-07'),
   "La Universidad XYZ organizará una jornada de voluntariado para promover el servicio comunitario entre los estudiantes. Los participantes colaborarán en proyectos sociales y brindarán apoyo a organizaciones locales, fortaleciendo así el compromiso cívico y la responsabilidad social.",250,'');
   noticia8:Noticia=new Noticia(8,"Nueva exposición de arte en el campus de la Universidad ABC",
-  "2023-02-08",
+  new Date('2023-02-08'),
   "El Departamento de Bellas Artes de la Universidad ABC inaugurará una emocionante exposición de arte contemporáneo en el campus. La muestra contará con obras de reconocidos artistas locales e internacionales, brindando a la comunidad académica una experiencia cultural enriquecedora.",250,'Apoyado');
   noticia9:Noticia=new Noticia(9,"Conferencia sobre medicina personalizada en la Universidad XYZ",
-  "2023-02-09",
+  new Date('2023-02-09'),
   "La Universidad XYZ acogerá una conferencia especializada en medicina personalizada, explorando los avances y desafíos en este campo de rápido crecimiento. Los asistentes tendrán la oportunidad de aprender de expertos líderes en la industria y descubrir nuevas perspectivas en el cuidado de la salud.",250,'Apoyado');
   noticia10:Noticia=new Noticia(10,"Estudiantes de la Universidad ABC obtienen becas para estudiar en el extranjero",
-  "2023-02-10",
+  new Date('2023-02-10'),
   "Varios estudiantes destacados de la Universidad ABC han sido seleccionados para recibir becas que les permitirán realizar estudios en el extranjero durante el próximo año académico. Esta oportunidad les brindará una experiencia educativa internacional y les abrirá nuevas puertas en sus carreras.",250,'Apoyado');
   noticia11:Noticia=new Noticia(11,"Estudiantes de la Universidad Santo Tomas obtienen becas para estudiar en el extranjero",
-  "2023-02-11",
+  new Date('2023-02-11'),
   "Atención, varios estudiantes destacados de la Universidad ABC han sido seleccionados para recibir becas que les permitirán realizar estudios en el extranjero durante el próximo año académico. Esta oportunidad les brindará una experiencia educativa internacional y les abrirá nuevas puertas en sus carreras.",250,'');
   /*
     Modificar de acuerdo a las noticias
@@ -195,7 +195,7 @@ export class NoticiasService {
     al grupo de noticias correcto.
   */
 
-  subirNoticia(titulo:string,fecha:string,descripcion:string){
+  subirNoticia(titulo:string,fecha:Date,descripcion:string){
     let id_random:number;
     id_random= Math.floor(Math.random()*(20-10+1))+10;
     let noticia:Noticia = new Noticia(id_random,titulo,fecha,descripcion,0,'');

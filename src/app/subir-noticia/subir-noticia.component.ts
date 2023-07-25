@@ -13,7 +13,7 @@ export class SubirNoticiaComponent{
   estudiantes: boolean;
   profesores: boolean;
 
-  //Variable que guarda el titulo de la noticia
+  //Variable que guarda el titulo y descripción de la noticia
   titulo:string;
   descripcion:string;
 
@@ -50,8 +50,7 @@ export class SubirNoticiaComponent{
   subir_noticia(){
     if(this.titulo.length > 0 && this.descripcion.length>0 && (this.todos!==false || this.estudiantes!==false || this.profesores!==false)){
       this.error=false;
-      let fecha:string;
-      fecha=this.getFecha();
+      let fecha=new Date();
       this.servicioNoticia.subirNoticia(this.titulo,fecha,this.descripcion);
       this.volver();
     }
