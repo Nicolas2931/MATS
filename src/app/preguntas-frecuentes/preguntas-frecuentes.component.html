@@ -1,1 +1,34 @@
-<p>preguntas-frecuentes works!</p>
+<div class="container mt-2 d-flex justify-content-center align-items-center">
+  <div class="card w-100" id="contenedor_encabezado">
+    <!-- Contenido de la carta -->
+    <div class="card-body">
+      <h5 class="card-title display-3 mt-5" id="titulo">¿En qué podemos ayudarte?</h5>
+      <div class="row align-items-center mt-5">
+        <div class="col">
+            <input type="text" class="form-control buscar" placeholder="Buscar..." [(ngModel)]="txt_buscar">
+        </div>   
+        <div class="col-auto">
+            <button id="boton_buscar" class="btn text-white boton_buscar" type="button"><img src="../../assets/images/lupa.png" style ="height:2rem;" (click)="buscar()"></button>
+        </div> 
+      </div>
+      <div class="row mt-3">
+        <div class="multiselect">
+          <div class="selectBox mb-1" #selectBoxElement (click)="showCheckboxes()">
+              <select id="categorias">
+                  <option>Selecciona las categorías:</option>
+              </select>
+              <div class="overSelect"></div>
+          </div>
+          <div id="checkboxes" class="hide" [style.width.px]="selectBoxElement.offsetWidth">
+            <div *ngFor="let categoria of categorias" class="form-check">
+              <input type="checkbox" class="form-check-input" [id]="'c' + categoria.id" [(ngModel)]="categoria.seleccionado">
+              <label class="form-check-label" [for]="'c' + categoria.id">{{ categoria.nombre }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
